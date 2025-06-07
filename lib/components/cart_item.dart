@@ -1,27 +1,43 @@
-
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:white_tap/services/cart_services.dart';
-import 'package:white_tap/models/shoe_model.dart';
+import 'package:white_tap/models/item_model.dart';
 
 class CartItem extends StatelessWidget {
-  ShoeModel shoe;
-  CartItem({super.key, required this.shoe});
+  ItemModel item;
+  CartItem({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
     void removeItemFromCart() {
-      if (shoe.id == null) {
+      if (item.id == null) {
         log('Id is null, cant do deletion');
-        // log("ID is Null , can't complete deleting process");
       } else {
         Provider.of<CartServies>(
           context,
           listen: false,
-        ).removeItemFromCart(shoe.id!);
+        ).removeItemFromCart(item.id!);
       }
+    }
+
+    void deleteAlertBox(){
+      showDialog(context: context, builder:(context) => AlertDialog(
+        title: Text("Are you sure?",textAlign: TextAlign.center,),
+        content: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+          ElevatedButton(
+            onPressed: () {
+            removeItemFromCart();
+            Navigator.pop(context);
+          }, child: Text("Delete",style: TextStyle(color: Colors.red),)),
+          ElevatedButton(onPressed: () {
+            Navigator.pop(context);
+          }, child: Text("Cancel")),
+        ],),
+      ),);
     }
 
     return Container(
@@ -31,11 +47,11 @@ class CartItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: ListTile(
-        leading: Image.asset(shoe.image),
-        title: Text(shoe.name),
-        subtitle: Text(shoe.price),
+        leading: Image.asset(item.image),
+        title: Text(item.name),
+        subtitle: Text("₹${item.price}"),
         trailing: IconButton(
-          onPressed: removeItemFromCart,
+          onPressed: deleteAlertBox ,
           icon: Icon(Icons.delete),
         ),
       ),

@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:white_tap/components/cart_item.dart';
 import 'package:white_tap/constants/const.dart';
 import 'package:white_tap/services/cart_services.dart';
-import 'package:white_tap/models/shoe_model.dart';
+import 'package:white_tap/models/item_model.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({super.key});
@@ -23,7 +23,6 @@ class _CartPageState extends State<CartPage> {
 
   @override
   Widget build(BuildContext context) {
-    // return Scaffold(body: Center(child: Text("Cart")));
     return Consumer<CartServies>(
       builder:
           (context, value, child) => Padding(
@@ -43,8 +42,8 @@ class _CartPageState extends State<CartPage> {
                           : ListView.builder(
                             itemCount: value.getUserCart().length,
                             itemBuilder: (context, index) {
-                              ShoeModel shoe = value.getUserCart()[index];
-                              return CartItem(shoe: shoe);
+                              ItemModel item = value.getUserCart()[index];
+                              return CartItem(item: item);
                             },
                           ),
                 ),

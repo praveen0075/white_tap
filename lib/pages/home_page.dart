@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
   List pages = [ShopePage(), CartPage()];
 
   @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -52,11 +52,12 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Column(
-                children: [ 
+                children: [
                   DrawerHeader(
                     child: Image.asset(
-                      "assets/images/nikelogo.png",
+                      "assets/images/headphone-gadget-cartoon-isolated.png",
                       color: Colors.white,
+                      width: 100,
                     ),
                   ),
                   ListTile(
@@ -66,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                   ListTile(
                     leading: Icon(Icons.info, color: Colors.white),
                     title: Text("About", style: TextStyle(color: Colors.white)),
-                  ),  
+                  ),
                 ],
               ),
               ListTile(

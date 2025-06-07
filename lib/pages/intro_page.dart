@@ -16,12 +16,16 @@ class IntroPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // kh60,
-              Image.asset("assets/images/nikelogo.png", height: 250),
+              Image.asset(
+                "assets/images/headphone-gadget-cartoon-isolated.png",
+                height: 250,
+                width: 250  ,
+              ),
               kh75,
-              Text("Just Do It ", style: introPageTitleTextStyle),
+              Text("Feel Every Beat", style: introPageTitleTextStyle),
               kh20,
               Text(
-                "Brand new  sneakers  and custom kicks made with premium quality",
+                "Explore our premium collection of Earphones and Earbuds – where every beat feels alive.",
                 style: introPageSubtitleTextStyle,
                 textAlign: TextAlign.center,
               ),
@@ -45,7 +49,7 @@ class IntroPage extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(15),
                     child: Center(
-                      child: Text("Shop Now", style: introPageButtonTextStyle),
+                      child: Text("Continue", style: introPageButtonTextStyle),
                     ),
                   ),
                 ),
